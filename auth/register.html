@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register - Buyunic Technologies Enrolment Portal</title>
+<link rel="icon" href="../logo.png" type="image/png" />
+
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#1e40af',
+secondary: '#059669'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+.gradient-bg {
+background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #ffffff 100%);
+}
+</style>
+
+</head>
+<body class="bg-gray-50">
+<header class="bg-primary shadow-lg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a href="../index.html" class="flex items-center gap-2 text-white hover:text-blue-200 transition-colors duration-300 font-medium">
+  <img src="../logo.png" alt="Institution Logo" class="h-6 w-6" />
+  <span>Buyunic Technologies</span>
+</a>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a href="../index.html" class="text-white hover:text-blue-200 transition-colors duration-300 font-medium">Home</a>
+<a href="../index.html#courses" class="text-white hover:text-blue-200 transition-colors duration-300 font-medium">Courses</a>
+<a href="../index.html#about" class="text-white hover:text-blue-200 transition-colors duration-300 font-medium">About</a>
+</nav>
+</div>
+</div>
+</header>
+
+<main class="min-h-screen py-12">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h1 class="text-4xl font-bold text-gray-900 mb-4">Course Registration</h1>
+<p class="text-xl text-gray-600">Join thousands of students advancing their ICT skills</p>
+</div>
+
+<div class="bg-white rounded-xl shadow-lg overflow-hidden">
+<div class="p-8">
+<form id="registration-form" class="space-y-6">
+<!-- Personal Information -->
+<div class="border-b border-gray-200 pb-6">
+<h2 class="text-2xl font-semibold text-gray-900 mb-6">Personal Information</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+<input type="text" id="firstName" name="firstName" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+<input type="text" id="lastName" name="lastName" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+<input type="email" id="email" name="email" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+<input type="tel" id="phone" name="phone" required placeholder="+256 XXX XXX XXX"
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="dateOfBirth" class="block text-sm font-medium text-gray-700 mb-2">Date of Birth *</label>
+<input type="date" id="dateOfBirth" name="dateOfBirth" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="gender" class="block text-sm font-medium text-gray-700 mb-2">Gender *</label>
+<select id="gender" name="gender" required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Gender</option>
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="mt-6">
+<label for="address" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+<textarea id="address" name="address" rows="3"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder="Enter your full address"></textarea>
+</div>
+</div>
+
+<!-- Education Background -->
+<div class="border-b border-gray-200 pb-6">
+<h2 class="text-2xl font-semibold text-gray-900 mb-6">Education Background</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="educationLevel" class="block text-sm font-medium text-gray-700 mb-2">Highest Education Level *</label>
+<select id="educationLevel" name="educationLevel" required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Education Level</option>
+<option value="primary">Primary Education</option>
+<option value="secondary">Secondary Education (O-Level)</option>
+<option value="advanced">Advanced Level (A-Level)</option>
+<option value="certificate">Certificate</option>
+<option value="diploma">Diploma</option>
+<option value="degree">Bachelor's Degree</option>
+<option value="masters">Master's Degree</option>
+<option value="phd">PhD</option>
+</select>
+</div>
+<div>
+<label for="institution" class="block text-sm font-medium text-gray-700 mb-2">Last Institution Attended</label>
+<input type="text" id="institution" name="institution"
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+       placeholder="Name of school/university">
+</div>
+<div>
+<label for="graduationYear" class="block text-sm font-medium text-gray-700 mb-2">Graduation Year</label>
+<input type="number" id="graduationYear" name="graduationYear" min="1980" max="2025"
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="fieldOfStudy" class="block text-sm font-medium text-gray-700 mb-2">Field of Study</label>
+<input type="text" id="fieldOfStudy" name="fieldOfStudy"
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+       placeholder="e.g., Computer Science, Business">
+</div>
+</div>
+</div>
+
+<!-- Course Selection -->
+<div class="border-b border-gray-200 pb-6">
+<h2 class="text-2xl font-semibold text-gray-900 mb-6">Course Selection</h2>
+<div class="space-y-4">
+<div>
+<label for="courseCategory" class="block text-sm font-medium text-gray-700 mb-2">Course Category *</label>
+<select id="courseCategory" name="courseCategory" required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Category</option>
+<option value="microsoft">Microsoft Office</option>
+<option value="graphics">Graphics & Web Design</option>
+<option value="other">Other Programs</option>
+<option value="internship">Internship Program</option>
+</select>
+</div>
+<div>
+<label for="specificCourse" class="block text-sm font-medium text-gray-700 mb-2">Specific Course *</label>
+<select id="specificCourse" name="specificCourse" required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Course</option>
+</select>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="preferredStartDate" class="block text-sm font-medium text-gray-700 mb-2">Preferred Start Date</label>
+<input type="date" id="preferredStartDate" name="preferredStartDate"
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="preferredTime" class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+<select id="preferredTime" name="preferredTime"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Time</option>
+<option value="morning">Morning (8:00 AM - 12:00 PM)</option>
+<option value="afternoon">Afternoon (1:00 PM - 5:00 PM)</option>
+<option value="evening">Evening (6:00 PM - 9:00 PM)</option>
+<option value="weekend">Weekend</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Emergency Contact -->
+<div class="border-b border-gray-200 pb-6">
+<h2 class="text-2xl font-semibold text-gray-900 mb-6">Emergency Contact</h2>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label for="emergencyName" class="block text-sm font-medium text-gray-700 mb-2">Contact Name *</label>
+<input type="text" id="emergencyName" name="emergencyName" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="emergencyPhone" class="block text-sm font-medium text-gray-700 mb-2">Contact Phone *</label>
+<input type="tel" id="emergencyPhone" name="emergencyPhone" required
+       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+</div>
+<div>
+<label for="relationship" class="block text-sm font-medium text-gray-700 mb-2">Relationship *</label>
+<select id="relationship" name="relationship" required
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Relationship</option>
+<option value="parent">Parent</option>
+<option value="guardian">Guardian</option>
+<option value="sibling">Sibling</option>
+<option value="spouse">Spouse</option>
+<option value="friend">Friend</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- Additional Information -->
+<div class="pb-6">
+<h2 class="text-2xl font-semibold text-gray-900 mb-6">Additional Information</h2>
+<div class="space-y-4">
+<div>
+<label for="motivation" class="block text-sm font-medium text-gray-700 mb-2">Why do you want to take this course?</label>
+<textarea id="motivation" name="motivation" rows="4"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder="Tell us about your goals and motivation..."></textarea>
+</div>
+<div>
+<label for="experience" class="block text-sm font-medium text-gray-700 mb-2">Previous ICT Experience</label>
+<textarea id="experience" name="experience" rows="3"
+          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+          placeholder="Describe any relevant experience you have..."></textarea>
+</div>
+<div>
+<label for="hearAbout" class="block text-sm font-medium text-gray-700 mb-2">How did you hear about us?</label>
+<select id="hearAbout" name="hearAbout"
+        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors">
+<option value="">Select Option</option>
+<option value="social-media">Social Media</option>
+<option value="website">Website</option>
+<option value="friend">Friend/Family</option>
+<option value="advertisement">Advertisement</option>
+<option value="search-engine">Search Engine</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- Terms and Conditions -->
+<div class="bg-gray-50 p-6 rounded-lg">
+<div class="flex items-start space-x-3">
+<input type="checkbox" id="terms" name="terms" required
+       class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+<label for="terms" class="text-sm text-gray-700">
+I agree to the <a href="../index.html#" class="text-primary hover:underline">Terms and Conditions</a> 
+and <a href="https://buyunic.ug/privacy-policy/" target="_blank" class="text-primary hover:underline">Privacy Policy</a>. 
+I understand that course fees are non-refundable once training begins. *
+</label>
+</div>
+<div class="flex items-start space-x-3 mt-4">
+<input type="checkbox" id="newsletter" name="newsletter"
+       class="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+<label for="newsletter" class="text-sm text-gray-700">
+I would like to receive updates about new courses and programs via email.
+</label>
+</div>
+</div>
+
+<!-- Submit Button -->
+<div class="text-center pt-6">
+<button type="submit" 
+        class="bg-secondary text-white px-12 py-4 rounded-button font-semibold text-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
+<i class="ri-send-plane-line mr-2"></i>
+Submit Registration
+</button>
+<p class="text-sm text-gray-600 mt-4">
+After submission, you will receive an Application ID for payment processing.
+</p>
+</div>
+</form>
+</div>
+</div>
+
+<!-- Success Message (Hidden by default) -->
+<div id="success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-8">
+<div class="flex items-center">
+<i class="ri-check-line text-2xl text-green-600 mr-3"></i>
+<div>
+      <h3 class="text-lg font-semibold text-green-800">Registration Successful!</h3>
+      <p class="text-green-700 mt-1">Your Application ID is: <strong id="application-id"></strong></p>
+      <p class="text-green-600 text-sm mt-2">Please save this ID for payment processing. You will also receive a confirmation email shortly.</p>
+      <div class="mt-4">
+        <a href="../payment.html" class="inline-block bg-primary text-white px-6 py-2 rounded-button hover:bg-blue-700 transition-colors">
+          Proceed to Payment
+        </a>
+      </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<footer class="bg-primary text-white py-8 mt-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="flex items-center justify-center gap-3 mb-4">
+<img src="../logo.png" alt="Buyunic Logo" class="h-8 w-8" />
+<h3 class="text-xl font-bold">Buyunic Technologies</h3>
+</div>
+<p class="text-blue-200 mb-4">Empowering ICT Skills for the Future</p>
+<div class="flex justify-center space-x-6">
+<span class="text-blue-200 text-sm">
+<i class="ri-phone-line mr-1"></i>
++256 394 839 851
+</span>
+<span class="text-blue-200 text-sm">
+<i class="ri-mail-line mr-1"></i>
+info@buyunic.com
+</span>
+</div>
+<div class="border-t border-blue-600 mt-6 pt-4">
+<p class="text-blue-200 text-sm">&copy; 2025 Buyunic Technologies. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Course data
+const courses = {
+microsoft: [
+{ value: 'ms-word', text: 'MS Word Training - 120,000 UGX (3 weeks)', price: 120000 },
+{ value: 'powerpoint', text: 'PowerPoint Mastery - 50,000 UGX (2 weeks)', price: 50000 },
+{ value: 'excel', text: 'Excel Advanced - 60,000 UGX (2 weeks)', price: 60000 },
+{ value: 'access', text: 'Access Database - 60,000 UGX (2 weeks)', price: 60000 }
+],
+graphics: [
+{ value: 'photoshop', text: 'Photoshop & Design - 550,000 UGX (4 weeks)', price: 550000 },
+{ value: 'html', text: 'HTML Development - 600,000 UGX (4 weeks)', price: 600000 },
+{ value: 'wordpress', text: 'WordPress Mastery - 500,000 UGX (4 weeks)', price: 500000 }
+],
+other: [
+{ value: 'networking', text: 'Networking & SPSS - 550,000 UGX (6 weeks)', price: 550000 },
+{ value: 'cctv', text: 'CCTV Systems - 550,000 UGX (3 weeks)', price: 550000 }
+],
+internship: [
+{ value: 'internship', text: 'Internship Program - 400,000 UGX (2 months)', price: 400000 }
+]
+};
+
+// Handle course category change
+const categorySelect = document.getElementById('courseCategory');
+const courseSelect = document.getElementById('specificCourse');
+
+categorySelect.addEventListener('change', function() {
+const category = this.value;
+courseSelect.innerHTML = '<option value="">Select Course</option>';
+
+if (category && courses[category]) {
+courses[category].forEach(course => {
+const option = document.createElement('option');
+option.value = course.value;
+option.textContent = course.text;
+option.dataset.price = course.price;
+courseSelect.appendChild(option);
+});
+}
+});
+
+// Handle form submission
+const form = document.getElementById('registration-form');
+const successMessage = document.getElementById('success-message');
+const applicationIdSpan = document.getElementById('application-id');
+
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Generate application ID
+const applicationId = 'BUY' + Date.now().toString().slice(-8) + Math.random().toString(36).substr(2, 4).toUpperCase();
+
+// Show success message
+applicationIdSpan.textContent = applicationId;
+successMessage.classList.remove('hidden');
+
+// Scroll to success message
+successMessage.scrollIntoView({ behavior: 'smooth' });
+
+// In a real application, you would send the form data to a server here
+console.log('Form submitted with Application ID:', applicationId);
+
+// Optional: Reset form
+// form.reset();
+});
+
+// Set minimum date to today for start date
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('preferredStartDate').setAttribute('min', today);
+});
+</script>
+</body>
+</html>
