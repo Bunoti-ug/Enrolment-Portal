@@ -1,5 +1,7 @@
 <?php
 $page_title = 'Home';
+require_once 'includes/functions.php';
+
 start_secure_session();
 
 // Check if user is already logged in and redirect appropriately
@@ -13,8 +15,6 @@ if (is_logged_in()) {
 } else {
     $user_logged_in = false;
 }
-
-require_once 'includes/functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
