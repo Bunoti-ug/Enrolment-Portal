@@ -1,6 +1,6 @@
 <?php
-$page_title = 'Training Programs';
-require_once 'includes/header.php';
+require_once 'includes/functions.php';
+start_secure_session();
 
 $db = Database::getInstance();
 
@@ -13,6 +13,51 @@ foreach ($programs as $program) {
     $grouped_programs[$program['category']][] = $program;
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Programs - Buyunic Technologies Enrollment Portal</title>
+    <meta name="description" content="Explore our professional training and internship programs">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Buyunic Technologies Logo" onerror="this.style.display='none'">
+                <div class="logo-text">Buyunic Technologies</div>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="programs.php">Programs</a></li>
+                    <?php if (is_logged_in()): ?>
+                        <li><a href="user/dashboard.php">Dashboard</a></li>
+                        <li><a href="auth/logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="auth/login.php">Login</a></li>
+                        <li><a href="auth/register.php">Register</a></li>
+                    <?php endif; ?>
+                    <li><a href="contact.php">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <?php
+            $flash_message = get_flash_message();
+            if ($flash_message): ?>
+                <div class="alert alert-<?php echo $flash_message['type']; ?>">
+                    <?php echo htmlspecialchars($flash_message['message']); ?>
+                </div>
+            <?php endif; ?>
 
 <div class="card">
     <div class="card-header">
@@ -213,4 +258,27 @@ foreach ($programs as $program) {
 }
 </style>
 
-<?php require_once 'includes/footer.php'; ?>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="about.php">About Us</a>
+                <a href="programs.php">Programs</a>
+                <a href="contact.php">Contact</a>
+                <a href="privacy.php">Privacy Policy</a>
+                <a href="terms.php">Terms & Conditions</a>
+            </div>
+            <div class="footer-info">
+                <p>&copy; <?php echo date('Y'); ?> Buyunic Technologies. All rights reserved.</p>
+                <p>Plot 28, North Road, Northern City Division, Mbale City</p>
+                <p>WhatsApp: +256 207 901 434 | Email: info@buyunic.ug</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

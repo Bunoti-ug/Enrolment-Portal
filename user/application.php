@@ -1,6 +1,6 @@
 <?php
-$page_title = 'Application Form';
-require_once '../includes/header.php';
+require_once '../includes/functions.php';
+start_secure_session();
 require_login();
 
 $db = Database::getInstance();
@@ -257,6 +257,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($errors)) {
     $current_application = $db->fetch("SELECT * FROM applications WHERE user_id = ? ORDER BY created_at DESC LIMIT 1", [$user_id]);
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form - Buyunic Technologies Enrollment Portal</title>
+    <meta name="description" content="Complete your enrollment application">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Buyunic Technologies Logo" onerror="this.style.display='none'">
+                <div class="logo-text">Buyunic Technologies</div>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="dashboard.php">Dashboard</a></li>
+                    <li><a href="application.php">Application</a></li>
+                    <li><a href="uploads.php">Documents</a></li>
+                    <li><a href="payments.php">Payments</a></li>
+                    <li><a href="../auth/logout.php">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <?php
+            $flash_message = get_flash_message();
+            if ($flash_message): ?>
+                <div class="alert alert-<?php echo $flash_message['type']; ?>">
+                    <?php echo htmlspecialchars($flash_message['message']); ?>
+                </div>
+            <?php endif; ?>
 
 <div class="card">
     <div class="card-header">
@@ -533,4 +573,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<?php require_once '../includes/footer.php'; ?>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../about.php">About Us</a>
+                <a href="../programs.php">Programs</a>
+                <a href="../contact.php">Contact</a>
+                <a href="../privacy.php">Privacy Policy</a>
+                <a href="../terms.php">Terms & Conditions</a>
+            </div>
+            <div class="footer-info">
+                <p>&copy; <?php echo date('Y'); ?> Buyunic Technologies. All rights reserved.</p>
+                <p>Plot 28, North Road, Northern City Division, Mbale City</p>
+                <p>WhatsApp: +256 207 901 434 | Email: info@buyunic.ug</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
